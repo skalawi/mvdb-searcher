@@ -14,6 +14,8 @@ export class MoviesComponent implements OnInit {
   movies: Movie[];
   currentPage: number;
   totalPages: number;
+  next: boolean;
+  prev: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -37,6 +39,8 @@ export class MoviesComponent implements OnInit {
       this.apiService.getPage(query, ++this.currentPage)
         .subscribe(result => this.movies = result.movies);
     }
+    if(this.currentPage === this.totalPages) this.next = false;
+    this.prev = true;
   }
 
   getPrevPage(): void{
@@ -45,6 +49,7 @@ export class MoviesComponent implements OnInit {
       this.apiService.getPage(query, --this.currentPage)
         .subscribe(result => this.movies = result.movies);
     }
+    if(this.currentPage === 1) this.prev = false;
   }
 
   getMovies(): void{
@@ -54,6 +59,9 @@ export class MoviesComponent implements OnInit {
         this.movies = result.movies;
         this.totalPages = result.totalPages;
         this.currentPage = 1;
+        if(this.totalPages === 1) {this.next = false;}
+        else {this.next = true;}
+        this.prev = false;
         console.log(this.totalPages);
       });
   }

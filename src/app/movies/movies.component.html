@@ -15,6 +15,6 @@
   </ul>
 </div>
 <div class="footer">
-  <button (click)="getPrevPage()" class="nav-button">Prev</button>
-  <button (click)="getNextPage()" class="nav-button">Next</button>
+  <button (click)="getPrevPage()" class="nav-button" [disabled]="prev === false">Prev</button>
+  <button (click)="getNextPage()" class="nav-button" [disabled]="next === false">Next</button>
 </div>
