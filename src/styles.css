@@ -6,3 +6,12 @@ html, body {
 body {
   background-color: #d5e1df;
 }
+
+*::selection {
+  background-color: #589DB0;
+  color: #fff;
+}
+
+*:focus {
+  outline: none;
+}

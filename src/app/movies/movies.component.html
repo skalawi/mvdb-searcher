@@ -1,11 +1,20 @@
 <div *ngIf="movies" class="result-container">
-  <ul class="movies">
-    <li *ngFor="let movie of movies">
-      <a routerLink="/detail/{{movie.id}}">
-        <span class="thumbnail">{{movie.id}}</span> {{movie.title}}
-      </a>
-    </li>
+  <ul>
+  <li *ngFor="let movie of movies" class="result">
+    <a routerLink="/detail/{{movie.id}}">
+        <img class="poster" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{movie.poster_path}}" alt="">
+      <div class="description">
+        <div class="details">
+        <h3 class="title">{{movie.title}}</h3>
+
+          <p class="year">{{movie.release_date}}</p>
+        </div>
+      </div>
+    </a>
+  </li>
   </ul>
 </div>
-<button (click)="getPrevPage()">Prev</button>
-<button (click)="getNextPage()">Next</button>
+<div class="footer">
+  <button (click)="getPrevPage()" class="nav-button">Prev</button>
+  <button (click)="getNextPage()" class="nav-button">Next</button>
+</div>

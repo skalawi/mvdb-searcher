@@ -1,59 +1,100 @@
-/* HeroesComponent's private CSS styles */
+@import 'https://fonts.googleapis.com/css?family=Lato';
+
 .result-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
 }
 
-.movies {
-  margin: 0 0 2em 0;
+ul {
   list-style-type: none;
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  column-fill: balance;
+}
+
+.result {
+  width: 400px;
+  height: 200px;
+  margin: 0 auto;
+  background-color: #FFF;
+  break-inside: avoid;
+  box-shadow: 0px 0px 2px #fff;
+  border-radius: 10px;
+}
+
+.result:hover {
+  box-shadow: 0px 0px 10px #fff;
+}
+
+.result a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+}
+
+.result + .result {
+  margin-top: 1.5em;
+}
+
+.poster {
+  display: inline;
+  width: auto;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.description {
+  padding: 1em;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+}
+
+.details {
+  margin: auto 0;
+  color: #589DB0;
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+}
+
+.title {
+  margin: 0;
+}
+
+.year {
+  margin-top: 0em;
+  color: #d5e1df;
+}
+
+.footer {
+  width: 100%;
+  display: flex;
+}
+
+.nav-button {
+  display: inline;
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  color: #FFF;
+  border-radius: 10px;
+  background-color:  #589DB0;
+  border: 1px solid #589DB0;
+  width: 5em;
+  height: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2em;
   padding: 0;
-  width: 15em;
-}
-.movies li {
-  cursor: pointer;
-  position: relative;
-  left: 0;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 3.6em;
-  border-radius: 4px;
-}
-.movies li:hover {
-  color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
-}
-.movies .thumbnail {
-  display: inline-block;
-  font-size: small;
-  color: white;
-  padding: 0.8em 0.7em 0 0.7em;
-  background-color:#405061;
-  line-height: 1em;
-  position: relative;
-  left: -1px;
-  top: -4px;
-  height: 3.8em;
-  width: 3.8em;
-  margin-right: .8em;
-  border-radius: 4px 0 0 4px;
 }
 
-button {
-  background-color: #eee;
-  border: none;
-  width: 10em;
-  height: 5em;
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  cursor: hand;
-  font-family: Arial;
+.nav-button:hover {
+  text-shadow:0px 0px 30px #fff;
+  box-shadow: 0px 0px 5px #fff;
 }
 
-button:hover {
-  background-color: #cfd8dc;
+*::selection {
+  background-color: #589DB0;
+  color: #fff;
 }
