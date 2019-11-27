@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./searcher.component.css']
 })
 export class SearcherComponent implements OnInit {
-  
+  active: boolean = true;
+
   constructor(private activatedRoute: ActivatedRoute,
     private location: Location,
     private router: Router) { }
@@ -16,8 +17,13 @@ export class SearcherComponent implements OnInit {
   ngOnInit() {
   }
 
+  getRoute(){
+    if (this.router.url !== '/') return "afterSearch";
+  }
+
   search(query: string){
     console.log(query);
+    this.active = true;
     this.router.navigate([`movies/${query}`])
   }
 }
