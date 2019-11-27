@@ -2,7 +2,7 @@
   <ul>
   <li *ngFor="let movie of movies" class="result">
     <a routerLink="/detail/{{movie.id}}">
-        <img class="poster" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{movie.poster_path}}" alt="">
+        <img class="poster" [src]="validateImg(movie.poster_path)" alt="">
       <div class="description">
         <div class="details">
         <h3 class="title">{{movie.title}}</h3>

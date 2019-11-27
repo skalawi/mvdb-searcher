@@ -12,6 +12,8 @@ import { filter } from 'rxjs/operators';
 })
 export class MoviesComponent implements OnInit {
   movies: Movie[];
+  posterUrl: string = 'https://image.tmdb.org/t/p/w185_and_h278_bestv2/';
+  mockImgUrl: string = '/assets/noimage.png';
   currentPage: number;
   totalPages: number;
   next: boolean;
@@ -61,6 +63,11 @@ export class MoviesComponent implements OnInit {
         if(this.currentPage > 1) this.prev = true;
         else this.prev = false;
       });
+  }
+
+  validateImg(image: string): string{
+    if(image == null) return this.mockImgUrl;
+    else return this.posterUrl+image;
   }
 
 }
