@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Movie } from './movie';
-import { MOVIES } from './mock-movies';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
@@ -16,11 +15,17 @@ export class ApiService {
 
   getMovies(query: String): Observable<any> {
     return this.http.get(this.searchUrl+`?api_key=${this.API_KEY}&query=${query}`).pipe(
-      map(result => result['results'])
-    );
+      map(result => ({movies: result['results'], totalPages: result['total_pages']})
+    ));
   }
 
   getMovie(id: number): Observable<any> {
     return this.http.get(this.movieUrl+`${id}?api_key=${this.API_KEY}`);
+  }
+
+  getPage(query: String, page: number): Observable<any> {
+    return this.http.get(this.searchUrl+`?api_key=${this.API_KEY}&query=${query}&page=${page}`).pipe(
+      map(result => ({movies: result['results'], totalPages: result['total_pages']})
+    ));
   }
 }

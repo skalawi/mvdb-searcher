@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./searcher.component.css']
 })
 export class SearcherComponent implements OnInit {
-
+  
   constructor(private activatedRoute: ActivatedRoute,
     private location: Location,
     private router: Router) { }
