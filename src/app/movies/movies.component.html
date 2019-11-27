@@ -1,0 +1,9 @@
+<div class="result-container">
+  <ul class="movies">
+    <li *ngFor="let movie of movies">
+      <a routerLink="/detail/{{movie.id}}">
+        <span class="thumbnail">{{movie.id}}</span> {{movie.title}}
+      </a>
+    </li>
+  </ul>
+</div>
