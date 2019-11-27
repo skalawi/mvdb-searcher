@@ -36,33 +36,30 @@ export class MoviesComponent implements OnInit {
   getNextPage(): void{
     const query = this.route.snapshot.paramMap.get('query');
     if(this.currentPage < this.totalPages){
-      this.apiService.getPage(query, ++this.currentPage)
-        .subscribe(result => this.movies = result.movies);
+      this.router.navigate([`movies/${query}/${++this.currentPage}`])
     }
-    if(this.currentPage === this.totalPages) this.next = false;
-    this.prev = true;
   }
 
   getPrevPage(): void{
     const query = this.route.snapshot.paramMap.get('query');
     if(this.currentPage !== 1){
-      this.apiService.getPage(query, --this.currentPage)
-        .subscribe(result => this.movies = result.movies);
+      this.router.navigate([`movies/${query}/${--this.currentPage}`])
     }
-    if(this.currentPage === 1) this.prev = false;
   }
 
   getMovies(): void{
     const query = this.route.snapshot.paramMap.get('query');
-    this.apiService.getMovies(query)
+    const page = +this.route.snapshot.paramMap.get('page');
+    this.apiService.getMovies(query,page)
       .subscribe(result => {
         this.movies = result.movies;
         this.totalPages = result.totalPages;
-        this.currentPage = 1;
-        if(this.totalPages === 1) {this.next = false;}
+        this.currentPage = page;
+        if(this.currentPage === this.totalPages) {
+          this.next = false;}
         else {this.next = true;}
-        this.prev = false;
-        console.log(this.totalPages);
+        if(this.currentPage > 1) this.prev = true;
+        else this.prev = false;
       });
   }
 

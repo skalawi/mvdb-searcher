@@ -4,7 +4,7 @@ import { MoviesComponent } from './movies/movies.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 
 const routes: Routes = [
-  {path: 'movies/:query', component: MoviesComponent},
+  {path: 'movies/:query/:page', component: MoviesComponent},
   {path: 'detail/:id', component: MovieDetailComponent }
 ];
 

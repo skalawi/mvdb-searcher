@@ -22,8 +22,7 @@ export class SearcherComponent implements OnInit {
   }
 
   search(query: string){
-    console.log(query);
     this.active = true;
-    this.router.navigate([`movies/${query}`])
+    this.router.navigate([`movies/${query}/1`])
   }
 }

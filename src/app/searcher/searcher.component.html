@@ -1,5 +1,5 @@
 <div class="search-bar"
   [ngClass]="getRoute()">
-  <input #searchInput searchInput.value='' class="search-input">
+  <input #searchInput searchInput.value='' (keyup.enter)="search(searchInput.value)" class="search-input">
   <button (click)="search(searchInput.value)" class="search-button">Search</button>
 </div>

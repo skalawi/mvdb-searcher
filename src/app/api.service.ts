@@ -13,8 +13,8 @@ export class ApiService {
   private API_KEY = '67db7ad6fd8076f2f34a33a942cce915';
   constructor(private http: HttpClient) { }
 
-  getMovies(query: String): Observable<any> {
-    return this.http.get(this.searchUrl+`?api_key=${this.API_KEY}&query=${query}`).pipe(
+  getMovies(query: String, page: number): Observable<any> {
+    return this.http.get(this.searchUrl+`?api_key=${this.API_KEY}&query=${query}&page=${page}`).pipe(
       map(result => ({movies: result['results'], totalPages: result['total_pages']})
     ));
   }
