@@ -7,12 +7,14 @@ import { MoviesComponent } from './movies/movies.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { SearcherComponent } from './searcher/searcher.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    SearcherComponent
   ],
   imports: [
     BrowserModule,
